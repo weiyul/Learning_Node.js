@@ -1,3 +1,4 @@
+// node.js v6.9.2
 var net = require('net');
 var server = net.createServer((socket) => {
   socket.end('goodbye\n');
