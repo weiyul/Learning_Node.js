@@ -1,9 +1,15 @@
-// node helloWorld.js
-// on any browser, http://localhost:8124/
+// node.js v6.9.2
+const http = require('http');
 
-var http= require('http');
-http.createServer(function(req, res){
-    res.writeHead(200, {'Content-Type':'text/plain'});
-    res.end('Hello World from Sophia\n');
-}).listen(8124, "127.0.0.1");
-console.log('Server running at http://127.0.0.1:8124/');
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
