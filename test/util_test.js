@@ -1,20 +1,14 @@
 var expect = require('chai').expect;
 
-
-
-describe('util tests',function(){
-	it('should pass this canary test',function(){
-		expect(true).to.eql(true);
-	});
+describe('util tests', function() {
+  it('should pass this canary test', function() {
+    expect(true).to.eql(true);
+  });
 });
-
 /*
 This is from Test-Driving JavaScript Applications by Venkat Subramaniam
 This Canary Test is used to help to quickly verify that the most basic test works, confirming again that the test environments is ok
-*/
 
-
-/*
 This is a Mocha test file
 By default, Mocha looks for tests in the test directory
 
@@ -31,6 +25,6 @@ The name should clearly and concisely express the intention of the test and conv
 
 To run the test, type
 npm test
-*/
 
-/* Mocha reports the canary test as passing. That confirms that both Mocha and Chai are installed properly and working in tandem.
+Mocha reports the canary test as passing. That confirms that both Mocha and Chai are installed properly and working in tandem.
+*/
