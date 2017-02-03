@@ -16,10 +16,10 @@ describe('util tests', function() {
   });
 
   it('sholuld pass if the elements of array are squared by squareArrayInPlace()', function(){
-    var intArray = [0,1,2];
+    var intArray = [3,9,10];
   	
     var result= squareArray.squareArrayInPlace(intArray);
-    var expectedResult = [0,1,4];
+    var expectedResult = [9,81,100];
   	expect(result).to.eql(expectedResult);
   });
 
