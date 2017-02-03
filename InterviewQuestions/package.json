@@ -1,18 +1,14 @@
 {
   "name": "questions",
   "version": "1.0.0",
-  "description": "interview questions",
+  "description": "",
   "main": "index.js",
-  "scripts": {
+  "directories": {
     "test": "test"
   },
-  "repository": {
-    "type": "git",
-    "url": "node.js"
+  "scripts": {
+    "test": "mocha"
   },
-  "keywords": [
-    "javaScript"
-  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
