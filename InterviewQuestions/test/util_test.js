@@ -15,12 +15,12 @@ describe('util tests', function() {
   	squareArray = new SquareArray();
   });
 
-  it('sholuld pass if the elements of array are squared', function(){
+  it('sholuld pass if the elements of array are squared by squareArrayInPlace()', function(){
     var intArray = [0,1,2];
   	
     var result= squareArray.squareArrayInPlace(intArray);
-
-  	expect(result).to.eql(true);
+    var expectedResult = [0,1,4];
+  	expect(result).to.eql(expectedResult);
   });
 
 
