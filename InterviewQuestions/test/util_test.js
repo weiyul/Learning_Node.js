@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-//var Util = require('../src/util'); //To load the file to be tested
+var SquareArray = require('../src/squareArray.js'); //To load the file to be tested
 
 
 describe('util tests', function() {
@@ -9,24 +9,19 @@ describe('util tests', function() {
 
   });
 
-  /*var util;
-
+  var squareArray;
+  
   beforeEach(function(){
-  	util = new Util();
+  	squareArray = new SquareArray();
   });
 
-  it('should pass if f2c returns 0X for 32F', function(){
-  	var fahrenheit =32;
-  	var celsius = util.f2c(fahrenheit);
-  	expect(celsius).to.eql(0);
-  });
+  it('sholuld pass if the elements of array are squared', function(){
+    var intArray = [0,1,2];
+  	
+    var result= squareArray.squareArrayInPlace(intArray);
 
-  it ('should pass if f2c returns 10C for 50F', function(){
-    var fahrenheit = 50;
-    var celsius = util.f2c(fahrenheit);
-    expect(celsius).to.eql(10);
+  	expect(result).to.eql(true);
   });
-*/
 
 
   
