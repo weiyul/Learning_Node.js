@@ -24,6 +24,13 @@ describe('util tests', function() {
   });
 
 
+  it('sholuld pass if the elements of array are squared by squareArrayOutOfPlace()', function(){
+    var intArray = [3,9,10];
+    
+    var result= squareArray.squareArrayOutOfPlace(intArray);
+    var expectedResult = [9,81,100];
+    expect(result).to.eql(expectedResult);
+  });
   
 });
 
