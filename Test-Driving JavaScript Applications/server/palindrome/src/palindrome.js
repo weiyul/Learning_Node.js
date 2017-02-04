@@ -1,3 +1,5 @@
+/* code is from Test-Driving JavaScript Applications */
+
 module.exports = function(word){
-	return true;
+	return word.split('').reverse().join('')===word;
 };
