@@ -28,4 +28,12 @@ describe('palindrome-test', function(){
 		expect(isPalindrome('mom dad')).to.be.false;
 	});
 
+	it('should return false when argument is an empty string', function(){
+		expect(isPalindrome('')).to.be.false;
+	});
+
+	it('should return false for argument witn only two spaces', function(){
+		expect(isPalindrome(' ')).to.be.false;
+	});
+
 });
