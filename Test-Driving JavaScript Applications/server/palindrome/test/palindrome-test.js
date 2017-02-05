@@ -36,4 +36,15 @@ describe('palindrome-test', function(){
 		expect(isPalindrome(' ')).to.be.false;
 	});
 
+	/*
+	An exception test should pass iff the code fails in the way expected. 
+	*/
+	it('should throw an exception if argument is missing', function(){
+		var call = function(){
+		 isPalindrome();
+		};
+		expect(call).to.throw(Error, 'Invalid argument');
+	});
+
+
 });
