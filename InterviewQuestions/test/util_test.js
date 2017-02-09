@@ -1,5 +1,6 @@
 var expect = require('chai').expect;
 var SquareArray = require('../src/squareArray.js'); //To load the file to be tested
+var ShuffleArrayInPlace = require('../src/inPlaceShufleOfAnArray.js');
 
 
 describe('util tests', function() {
@@ -13,6 +14,13 @@ describe('util tests', function() {
   
   beforeEach(function(){
   	squareArray = new SquareArray();
+    shuffleArrayInPlace = new ShuffleArrayInPlace();
+  });
+
+  it('should pass if the function naiveShuffle() in minimum code can work', function() {
+    var result = shuffleArrayInPlace.naiveShuffle();
+    expect(result).to.eql(true);
+    // body...
   });
 
   it('sholuld pass if the elements of array are squared by squareArrayInPlace()', function(){
@@ -22,6 +30,8 @@ describe('util tests', function() {
     var expectedResult = [9,81,100];
   	expect(result).to.eql(expectedResult);
   });
+
+
 
 
   it('sholuld pass if the elements of array are squared by squareArrayOutOfPlace()', function(){
