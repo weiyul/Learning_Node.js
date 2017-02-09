@@ -14,16 +14,51 @@
 * >= floor and <= ceiling.
 */
 
-
-
-function getRandom(floor, ceiling){
-	return Math.floor(Math.random()* (ceiling-floor +1))+ floor;
+//for mocha test
+module.exports = function(){
+	this.naiveShuffle = naiveShuffle; 
 }
 
+
 // use "node inPlaceShufleOfAnArray.js" on command prompt to test
+
 /*
 var floor = 1;
 var ceiling = 10;
 
 console.log(getRandom(floor, ceiling));
 */
+
+/*var theArray = [1,4];
+console.log(naiveShuffle(theArray));*/
+
+
+
+//Walk through the array and swap each element with a random other element
+function naiveShuffle(theArray){
+/*
+	//for each index in the array
+	for(var firstIndex =0; firstIndex< theArray.length; firstIndex){
+		//grab a random other index
+		var secondIndex = getRandom(0, theArray.length-1);
+
+		//and swap the values
+		if(secondIndex !== firstIndex){
+			var temp = theArray[firstIndex];
+			theArray[firstIndex] = theArray[secondIndex];
+			theArray[secondIndex] = temp;
+		}
+	}*/
+
+return true
+}
+
+
+
+
+function getRandom(floor, ceiling){
+	return Math.floor(Math.random()* (ceiling-floor +1))+ floor;
+}
+
+
+
