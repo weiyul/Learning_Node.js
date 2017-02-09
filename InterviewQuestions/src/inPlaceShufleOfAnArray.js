@@ -29,7 +29,7 @@ var ceiling = 10;
 console.log(getRandom(floor, ceiling));*/
 
 
-var theArray = [1,4];
+var theArray = [1,2,3];
 console.log("With input ["+theArray+"] Console log shows: ["+naiveShuffle(theArray)+"]");
 
 
@@ -38,9 +38,11 @@ console.log("With input ["+theArray+"] Console log shows: ["+naiveShuffle(theArr
 function naiveShuffle(theArray){
 
 	//for each index in the array
-/*	for(var firstIndex =0; firstIndex< theArray.length; firstIndex){
+	for(var firstIndex =0; firstIndex< theArray.length; firstIndex++){
 		//grab a random other index
+		//console.log("the firstIndex is: "+ firstIndex);
 		var secondIndex = getRandom(0, theArray.length-1);
+		//console.log("the secondIndex is: "+ secondIndex);
 
 		//and swap the values
 		if(secondIndex !== firstIndex){
@@ -48,7 +50,8 @@ function naiveShuffle(theArray){
 			theArray[firstIndex] = theArray[secondIndex];
 			theArray[secondIndex] = temp;
 		}
-	}*/
+	}
+
 
 	return theArray;
 }
