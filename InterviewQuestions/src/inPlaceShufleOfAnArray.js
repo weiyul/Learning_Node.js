@@ -20,25 +20,25 @@ module.exports = function(){
 }
 
 
-// use "node inPlaceShufleOfAnArray.js" on command prompt to test
+// use "node src/inPlaceShufleOfAnArray.js" on command prompt to test
 
-/*
-var floor = 1;
+
+/*var floor = 1;
 var ceiling = 10;
 
-console.log(getRandom(floor, ceiling));
-*/
+console.log(getRandom(floor, ceiling));*/
 
-/*var theArray = [1,4];
-console.log(naiveShuffle(theArray));*/
+
+var theArray = [1,4];
+console.log("With input ["+theArray+"] Console log shows: ["+naiveShuffle(theArray)+"]");
 
 
 
 //Walk through the array and swap each element with a random other element
 function naiveShuffle(theArray){
-/*
+
 	//for each index in the array
-	for(var firstIndex =0; firstIndex< theArray.length; firstIndex){
+/*	for(var firstIndex =0; firstIndex< theArray.length; firstIndex){
 		//grab a random other index
 		var secondIndex = getRandom(0, theArray.length-1);
 
@@ -50,7 +50,7 @@ function naiveShuffle(theArray){
 		}
 	}*/
 
-return true
+	return theArray;
 }
 
 
