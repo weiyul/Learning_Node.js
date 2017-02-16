@@ -1,2 +1,14 @@
-on the current directory, use the following command to install alll the dependencies:
+1. on the current directory, use the following command to install alll the dependencies:
 npm install 
+
+2. To create karma.conf.js, use the following command:
+node node_modules/karma/bin/karma init
+
+  2.1 Testing Framework: It offers Jasmine by default; tab until you see Mocha and then hit enter
+  2.2 Want to use Require.js: Take the deault 'no'
+  2.3 Browser to capture: Select Chrome and then hit enter twice
+  2.4 Hit enter to take the default for all other questions
+  
+  you will wee a file named karma.conf.js in the current directory.
+  
+Source: Test-Driving JavaScript Application by Venkat Subramaniam
