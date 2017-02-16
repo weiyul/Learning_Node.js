@@ -1,0 +1,2 @@
+To install all dependencies, under the current project directory, use the following command:
+npm install
