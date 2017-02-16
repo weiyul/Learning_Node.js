@@ -1,4 +1,4 @@
-1. on the current directory, use the following command to install alll the dependencies:
+1. on the current directory, use the following command to install all the dependencies:
 npm install 
 
 2. To create karma.conf.js, use the following command:
