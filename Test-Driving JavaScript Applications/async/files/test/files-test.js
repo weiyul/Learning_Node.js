@@ -16,4 +16,16 @@ describe('test server-side callback', function(){
 		};
 		linesCount('src/files.js', callback);
 	});
+
+	// A Negative Asynchronous Test
+	it('should report error for an invalid file name', function(done){
+		var onError = function(error){
+			expect(error).to.be.eql('unable to open file src/flies.js');
+			done();
+		};
+		
+		linesCount('src/flies.js', undefined, onError);//send invalid file name 'flies' instead of files
+		// The second argument to the function is undefined since it will not be used during this call.
+	});
 });
+
