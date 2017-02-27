@@ -1,0 +1,20 @@
+{
+  "name": "ls",
+  "version": "1.0.0",
+  "description": "= Learning JavaScript, 3rd Edition == Chapter 2: JavaScripot Development Tools",
+  "main": "index.js",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-install-tools": "^1.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
