@@ -48,12 +48,13 @@ const tab= "Speed:\t60kph";
 //console.log(tab);
 const singleQuote ="Don\'t";
 //console.log(singleQuote);//show Don't
-const doubleQuote ="Sam said \"hello\".";
+const doubleQuote ='Sam said \"hello\".';
 //console.log(doubleQuote);
-const backtick ='New in ES6: \' strings.';
-//console.log(backtick);//show New in ES6: ' strings.
-const dollarSign = 'New in ES6: \${interpolation}';
-//console.log(dollarSign);
+const backtick =`New in ES6: \` strings.`;
+//console.log(backtick);//show New in ES6: ` strings.
+let interpolation ="\${Template Strings}";
+const dollarSign = `New in ES6: ${interpolation}`;
+//console.log(dollarSign);//New in ES6: ${Template Strings}
 const backSlash ="use \\\\ to represent\\!";
 //console.log(backSlash);//show use \\ to represent\!
 const arbitraryUnicode ="De Morgan's law:\u2310(p \u22c0Q) \u21D4(\u2310P) \u22c1(\u2310Q)";
@@ -69,4 +70,27 @@ const backSpace= "Backspace: \b";//ASCII//Unicode 8
 const formFeed = "Form feed: \f";//ASCII/Unicode 12
 //console.log(formFeed);//show Form feed: 
 
+//Template Strings
+let currentTem = 19.5;
+const message = `The current temperature is ${currentTem}\u00b0c`;
+console.log(message);//The current temperature is 19.5°c
 
+//...............................................................
+var name = "Bob";
+var str = `Hello ${name}, how are you this fine ${partOfDay()}?`
+console.log(str);//Hello Bob, how are you this fine evening?
+
+function partOfDay () {
+    var hours = new Date().getHours();
+
+    if (hours <= 12) {
+        return "morning";
+    } else if (hours <= 5) {
+        return "afternoon";
+    } else {
+        return "evening";
+    }
+}
+
+// Output:
+// Hello Bob, how are you this fine afternoon?
