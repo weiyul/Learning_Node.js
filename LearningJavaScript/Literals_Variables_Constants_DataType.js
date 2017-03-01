@@ -39,4 +39,34 @@ const nIng = Number.NEGATIVE_INFINITY;//the same as -Infinity
 const nan2 = Number.NaN; // the same as NaN
 //console.log(nan2);//show NaN
 const inf2 = Number.POSITIVE_INFINITY; //The same as Infinity
-console.log(inf2);//Infinity
+//console.log(inf2);//Infinity
+const newLine = "Line1\nLine2";
+//console.log(newLine);
+const carriageReturn = "Windows line1\r\nWindow line2";
+//console.log(carriageReturn);
+const tab= "Speed:\t60kph";
+//console.log(tab);
+const singleQuote ="Don\'t";
+//console.log(singleQuote);//show Don't
+const doubleQuote ="Sam said \"hello\".";
+//console.log(doubleQuote);
+const backtick ='New in ES6: \' strings.';
+//console.log(backtick);//show New in ES6: ' strings.
+const dollarSign = 'New in ES6: \${interpolation}';
+//console.log(dollarSign);
+const backSlash ="use \\\\ to represent\\!";
+//console.log(backSlash);//show use \\ to represent\!
+const arbitraryUnicode ="De Morgan's law:\u2310(p \u22c0Q) \u21D4(\u2310P) \u22c1(\u2310Q)";
+//console.log(arbitraryUnicode);//show De Morgan's law:⌐(p ⋀Q) ⇔(⌐P) ⋁(⌐Q)
+const latin_1Character= "\xc9p\xe9e is fun, but foil is more fun.";
+//console.log(latin_1Character);//show Épée is fun, but foil is more fun.
+const nullCharacter= "ASCII Null :\0";//ASCII/Unicode 1
+//console.log(nullCharacter);//show ASCII Null :
+const verticalTab = "Vertical tab: \v";//ASCII/Unicode 11
+//console.log(verticalTab);//show Vertical tab: 
+const backSpace= "Backspace: \b";//ASCII//Unicode 8
+//console.log(backSpace);//show Backspace: 
+const formFeed = "Form feed: \f";//ASCII/Unicode 12
+//console.log(formFeed);//show Form feed: 
+
+
