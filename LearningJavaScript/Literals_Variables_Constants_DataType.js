@@ -73,12 +73,12 @@ const formFeed = "Form feed: \f";//ASCII/Unicode 12
 //Template Strings
 let currentTem = 19.5;
 const message = `The current temperature is ${currentTem}\u00b0c`;
-console.log(message);//The current temperature is 19.5°c
+//console.log(message);//The current temperature is 19.5°c
 
 //...............................................................
 var name = "Bob";
 var str = `Hello ${name}, how are you this fine ${partOfDay()}?`
-console.log(str);//Hello Bob, how are you this fine evening?
+//console.log(str);//Hello Bob, how are you this fine evening?
 
 function partOfDay () {
     var hours = new Date().getHours();
@@ -92,5 +92,128 @@ function partOfDay () {
     }
 }
 
-// Output:
-// Hello Bob, how are you this fine afternoon?
+//.................................................................
+
+//Multiline Strings
+const multiline ="line1\
+line2";
+//console.log(multiline);//output : line1line2
+
+const multilineNewLine ="line1\n\
+line2";
+//console.log(multilineNewLine);//output with line2 in new line
+
+const multilineBacktick = `line1
+line2`;
+//console.log(multilineBacktick);//output with line2 in a new line
+
+//...............................................................
+const result1=3+'30';//3 is converted to a string
+//console.log(result1);//330
+
+const result2=3*'30';//'30' is converted to a number
+//console.log(result2);//90
+
+//......................................................
+const RED = Symbol();//created with the Symbol() constructor
+const ORANGE = Symbol("The color of a sunset!");
+//console.log(RED ===ORANGE);// false: every symbol is unique
+
+//.......................................................
+const obj={}; //empty object
+//console.log(obj);//{}
+obj.color ="yellow";
+//console.log(obj.color);//yellow
+
+obj["not an indentifier"]=3;
+//console.log(obj["not an indentifier"]);//3
+//console.log(obj["color"]);//yellow
+
+const SIZE = Symbol();
+obj[SIZE]=8;
+//console.log(obj[SIZE]);//8
+obj[SIZE]=10;
+//console.log(obj[SIZE]);//10
+obj.SIZE=20;
+//console.log(obj.SIZE);//20
+//console.log(obj[SIZE]);//10
+//console.log(obj["SIZE"]);//20
+
+const sam1 = {
+	name:'Sam',
+	age:4,
+};
+
+const sam2 ={name:'Sam', age:4 };
+const sam3={
+	name:'Sam',
+	classification:{
+		kindom:'Anamalia',
+		phylum:'Chordata',
+		class:'Mamalia',
+		order:'Carnivoria',
+		family:'Felidae',
+		sunfaimily:'Felinae',
+		genus:'Felis',
+		species:'catus',
+	},
+};
+
+//console.log(sam3.classification.family);//Felidae
+//console.log(sam3["classification"].family);//Felidae
+//console.log(sam3.classification["family"]);//Felidae
+//console.log(sam3["classification"]["family"]);//Felidae
+
+sam3.speak= function(){return "Meow!";};
+//console.log(sam3.speak());//Meow!
+
+//delete sam3.classification; //the whole classification tree is removed
+//delete sam3.speak; //the speak function is removed
+
+const s ="hello";
+//console.log(s.toUpperCase());//HELLO
+s.rating =3;
+//console.log(s.rating);//undefined
+
+const a1 = [1,2,3,4]; //array containing numbers
+const a2 = [1,'two',3, null];//array containing mixed types
+const a3 = [
+	"What the hammer? What the chain",
+	"In what furnace was thy brain",
+	"What the anvil? what dread grasp",
+	"Dare its deadly terrors clasp?",
+]; //array on multiple lines
+
+const a4 =[
+	{name: "Ruby", hardness:9},
+	{name: "Diamond", hardness:10},
+	{name: "Topaz", hardness:8},
+];//array containing objects
+
+const a5 = [
+	[1,3,5],
+	[2,4,6],
+];//array containing arrays
+
+
+const arr =['a','b','c'];
+//console.log(arr.length);//3
+//console.log(arr[0]);//a
+//console.log(arr[arr.length-1]);//c
+arr[2]=3;
+//console.log(arr[arr.length-1]);//3
+
+//'''''''''''''DATE'''''''''''''''''''''''''''''''
+const now = new Date();
+//console.log(now); //show current Date
+
+const halloweenParty = new Date(2016, 9, 31, 19, 0);// to create a date that's initialized to a specific date and time 
+//console.log(halloweenParty);//2016-11-01T02:00:00.000Z
+//console.log(halloweenParty.getFullYear());//2016
+//console.log(halloweenParty.getMonth());//9
+//console.log(halloweenParty.getDate());//31
+//console.log(halloweenParty.getDay());//1  Monday
+//console.log(halloweenParty.getHours());//19
+//console.log(halloweenParty.getMinutes());//0
+//console.log(halloweenParty.getSeconds());//0
+//console.log(halloweenParty.getMilliseconds());//0
