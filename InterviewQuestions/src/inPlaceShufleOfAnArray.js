@@ -1,4 +1,4 @@
-/* 
+/* The code is from interviewcake, I make little changes of code to make it able to test
 * Interview question and solution from Interviewcake.com
 * Q35: Write a function for doing an in-place shuffle of an array.
 
