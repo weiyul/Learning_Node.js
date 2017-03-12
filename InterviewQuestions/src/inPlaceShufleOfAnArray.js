@@ -31,10 +31,15 @@ console.log(getRandom(floor, ceiling));*/
 
 var theArray = [1,2,3];
 console.log("With input ["+theArray+"] Console log shows: ["+naiveShuffle(theArray)+"]");
+console.log("With input ["+theArray+"] Console log shows: ["+shuffle(theArray)+"]");
 
 
 
-//Walk through the array and swap each element with a random other element
+/*
+Walk through the array and swap each element with a random other element
+
+However, this approach cannot give us a uniform random distribution.
+*/
 function naiveShuffle(theArray){
 
 	//for each index in the array
@@ -63,5 +68,32 @@ function getRandom(floor, ceiling){
 	return Math.floor(Math.random()* (ceiling-floor +1))+ floor;
 }
 
+// We choose a random item to move to the first index, then we choose a random other item to move
+// to the second index, etc. We place an item in an index by swapping it with the item currently
+// at that index
+
+function shuffle(theArray){
+
+	// if it's 1 or 0 items, just return
+	if (theArray.length <= 1) return;
+
+	// walk through from beginning to end
+	for(var indexWeAreChoosingFor =0; indexWeAreChoosingFor < theArray.length-1; 
+		indexWeAreChoosingFor++){
+		//choose a random not-yet-placed item to place there
+		// (could also be the item currently in that spot)
+		// must be an item AFTER the current item, because the stuff before has all ready been placed
+
+		var randomChoiceIndex = getRandom(indexWeAreChoosingFor, theArray.length-1);
+
+		// place our random choice in the spot by swapping
+		if(randomChoiceIndex !== indexWeAreChoosingFor){
+			var valueAtIndexWeChoseFor = theArray[indexWeAreChoosingFor];
+			theArray[indexWeAreChoosingFor]=theArray[randomChoiceIndex];
+			theArray[randomChoiceIndex] = valueAtIndexWeChoseFor;
+		}
+	}
+	return theArray;
+}
 
 
