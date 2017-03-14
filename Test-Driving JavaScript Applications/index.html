@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Locate Me</title>
+  </head>
+  <body>
+    <button onclick="locate();">Locate Me</button>
+    <div id="error"></div>
+    <script src="src/locateme.js"></script>
+  </body>
+</html>
+
+<!--
+
+Chapter 4 Tactfully Tackle Dependencies
+
+Dependencies arise almost everywhere: when code talks to remote services,
+read from or write to a file, update the DOM, get the user's location... the list 
+goes on. Dependencies are like taxes- they provide value but can turn into 
+a burden. Keep them to a minimum. From the automated testing point of
+view, dependencies are irksome. They can make tests nondeterministic, brittle, 
+slow, and cumbersome.
+
+Good design is critical to tackling dependencies. You can use some nice ticks
+and techniques to decouple and replace the dependencies so that the tests
+are automated and deterministic, and run fast. In this chapter, you'll first
+learn how to remove dependencies when possible. Then, in cases where the
+dependencies are intrinsic, you'll explore ways to replace them with test
+doubles like fakes, stubs, mocks, or spies. 
+
+Although test doubles are helpful, use them sparingly. If you're not careful, it's easy to get into a mocking hell. With those cautionary words in mind, let's explore some decoupling techniques. 
+
+A Problem and Spiking to Learn
+
+First we'll take on a small problem with significant dependencies in it. We'll
+create an HTML page with a "Locate Me" button. When the user clicks that
+button, a JavaScript function will invoke the geolocation API to get the user's
+location. If it succeeds, then the program will display the location on Google 
+Maps. If the requet fails, an error message will be displayed on the HTML page.
+
+The HTML file has a button with an onclick event registered to call a locate 
+function. It also has div element with the id named error. Finally the file refers
+to a locateme.js file under the src directory.
+
+
+Take a look at the package.json file in the current project directory. 
+The dependencies section refers to the http-server package. We'll use this
+lightweight web server to server files in the current directory. The command
+to start the server is given in the package.json file, under the scripts secton. The
+server is asked to use port 8080. Change that to some other port numer, like
+8082, if there's a port conflict on your system. Run the command npm start to start the server, open your favorite browser, and view http://localhost:8080
+
+Clikc the "Locate Me" button and ensure that the code created during your spiking 
+effort works. Take the time to fix any errors you may run into- we almost
+always run into errors.  
+
+
+	-->
