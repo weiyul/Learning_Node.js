@@ -68,7 +68,19 @@ describe('test promises', function(){
 	failure of the test.
 	*/
 	it('should return correct lines count - using eventually', function(){
-		return expect(linesCount('src/files.js')).to.eventually.eql(15);
+		return expect(lineCount('src/files.js')).to.eventually.eql(15);
+	});
+
+	/*
+	Mixing eventually and done()
+
+	Returning a Promise from a test is a good approach, but not all testing tools 
+	offer that capability. If you're using a testing tool that's unaware of promises
+	or if you simply prefer not to return a Promise, you may combine eventually and
+	the done parameter to test functions that return promises.
+	*/
+	it('should return correct lines count - using no return', function(done){
+		expect(lineCount('src/files.js')).to.eventually.eql(15).notify(done);
 	});
 
 });
