@@ -1,5 +1,9 @@
+require('chai').use(require('chai-as-promised')); 
+//the use function extends the Chai functions with an eventually property.
+
 var expect = require('chai').expect;
 var lineCount = require('../src/files');
+
 
 describe('test promises', function(){
 	/*
@@ -38,7 +42,7 @@ describe('test promises', function(){
 	
 	That's a notch better. No done parameter and the function that verifies the result
 	is a bit more concise. It is cool that we can return a Promise and Mocha knows what to do with that.
-	
+
 	*/
 	it('should return correct lines count - using return', function(){
 		var callback = function(count){
@@ -47,6 +51,26 @@ describe('test promises', function(){
 		return lineCount('src/files.js')
 		.then(callback);
 	});
+
+	/*
+	Using Chai-as-promised
+	Instead of returning the Promise object returned by the function under test,
+	the test can assert that the function nuder test eventually completes with the expected
+	response. To achieved this we will use the chai-as-promised library that was created exclusively
+	for testing promises.
+
+	The library chai-as-promised extends the fluent API of Chai with functions to verify promises'
+	responses. 
+
+	The eventually property tactfully makes the test concise and more expressive. 
+	The eventually bundles a Promise that will be resolved if the expression in the expect 
+	satisflies the value in the eql. Otherwise, the Promise will be rejected, resulting in the 
+	failure of the test.
+	*/
+	it('should return correct lines count - using eventually', function(){
+		return expect(linesCount('src/files.js')).to.eventually.eql(15);
+	});
+
 });
 
 
