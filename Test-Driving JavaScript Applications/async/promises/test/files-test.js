@@ -2,7 +2,7 @@ require('chai').use(require('chai-as-promised'));
 //the use function extends the Chai functions with an eventually property.
 
 var expect = require('chai').expect;
-var lineCount = require('../src/files');
+var linesCount = require('../src/files');
 
 
 describe('test promises', function(){
@@ -31,7 +31,7 @@ describe('test promises', function(){
 			expect(count).to.be.eql(15);
 			done();
 		};
-		lineCount('src/files.js')
+		linesCount('src/files.js')
 		.then(checkCount);
 	});
 
@@ -48,7 +48,7 @@ describe('test promises', function(){
 		var callback = function(count){
 			expect(count).to.be.eql(15);
 		};
-		return lineCount('src/files.js')
+		return linesCount('src/files.js')
 		.then(callback);
 	});
 
@@ -68,7 +68,7 @@ describe('test promises', function(){
 	failure of the test.
 	*/
 	it('should return correct lines count - using eventually', function(){
-		return expect(lineCount('src/files.js')).to.eventually.eql(15);
+		return expect(linesCount('src/files.js')).to.eventually.eql(15);
 	});
 
 	/*
@@ -80,10 +80,55 @@ describe('test promises', function(){
 	the done parameter to test functions that return promises.
 	*/
 	it('should return correct lines count - using no return', function(done){
-		expect(lineCount('src/files.js')).to.eventually.eql(15).notify(done);
+		expect(linesCount('src/files.js')).to.eventually.eql(15).notify(done);
 	});
 
+	/*
+	Writing Negative Tests for Promises
+
+	If an invalid filename were passed to the linesCount function, then the function
+	will respond with a Promise reject.
+
+	The rejected property waits for a Promises rejection. If the promimse resolves instead
+	or fails to reject in a timely fashion, then the test will fail. If it follows through the expectation, 
+	then notify signals the completion of the test.
+
+	Just like we did for the eventually call, we may return the Promise instead of using notify
+	for the rejected check. Pick the version you like the most
+	*/
+	it('should report error for an invalid file name', function(done){
+		expect(linesCount('src/flies.js')).to.be.rejected.notify(done);
+	});
+
+	/*
+	The previous test only confirmed that the Promise was rejected, but it's important
+	to verify that proper error was passed upon failure. For that, we can replace rejected
+	with rejectedWith.
+	*/
+	it('should report error for an invalid file name -using with', function(done){
+		expect(linesCount('src/flies.js')).to.be.rejectedWith('unable to open file src/flies.js').notify(done);
+	});
+
+
+
+
 });
+
+
+/*
+The tests worked like a charm, but what if you're dealing with slow functions?
+Mocha's default timeout is 2 secounds. If a Promise does not complete within that time,
+the test will fail. If you want to give a function a bit more time to complete, then use the 
+timeout function.
+
+
+Wrapping Up
+
+You learned how to write automated verification for asynchronous functions, both on the server 
+side and the client side. The tools make it relatively easy to wait on the asynchronous 
+functions to invoke the callback or respond through a Promise. The test, unfortunately,
+are hard to automate due to the dependencies.
+*/
 
 
 
