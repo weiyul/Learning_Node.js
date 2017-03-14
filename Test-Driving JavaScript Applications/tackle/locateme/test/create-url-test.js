@@ -18,4 +18,11 @@ describe('create-url test', function(){
 		var url = createURL(latitude, longitude);
 		expect(url).to.be.eql('http://maps.google.com?q=37.826,-122.423');
 	});
+
+	it('should return empty string if latitude is undefined', function(){
+		var latitude = undefined;
+		var longitude = -122.423;
+		var url = createURL(latitude, longitude);
+		expect(url).to.be.eql('');
+	});
 });
