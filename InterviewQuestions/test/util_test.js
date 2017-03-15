@@ -23,6 +23,12 @@ describe('util tests', function() {
 
 
   });
+  it('should pass when stock decreases everydayd and the profit is 0', function(){
+    var stockPricesYesterday = [8,7,6,5,4,3,2,1];
+    var result = maxProfitOfStock.getMaxProfit(stockPricesYesterday);
+    expect(result).to.eql(0);
+
+  });
 
   it('should pass if the function naiveShuffle() in minimum code can work', function() {
     var theArray = [1];
