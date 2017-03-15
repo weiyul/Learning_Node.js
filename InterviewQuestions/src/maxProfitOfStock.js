@@ -1,5 +1,5 @@
 // From interviewcake.com
-// What I did is test the solution using node.js
+// What I did is test the solution using node.js and chai
 
 /*
 Q1: Suppose we could access yesterday's stock prices as an array, where:
@@ -24,7 +24,6 @@ Gotchas
 
 It is not sufficient to simply take the difference between the highest price and the lowest
 price, because the highest price may come before the lowest price. You must buy before you sell.
-
 What if the stock value goes down all day? In that case, the best profit will be negative.
 
 You can do this in O(n) time and O(1) space!
@@ -37,6 +36,13 @@ To start, try writing an example value for stockPricesYesterday and finding the 
 The brute force approach would be to try every pair of times (treating the earlier time as buy 
 time and the later time as the sell time) and see which one is higher.
 */
+
+
+
+module.exports = function(){
+
+	this.getMaxProfit = getMaxProfit;
+}
 
 var stockPricesYesterday =[7, 0, 1, 2, 6, 8];
 //console.log(stockPricesYesterday);
@@ -67,3 +73,9 @@ function getMaxProfit(stockPricesYesterday){
 	}
 	return maxProfit;
 }
+
+/*
+But the above will take O(n^2) time, since we have two nested loops - for every time, we're going through
+every other time. Also, it is not correct: we won't every report a negative profit! Can we do better?
+
+*/
