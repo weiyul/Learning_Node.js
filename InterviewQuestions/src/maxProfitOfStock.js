@@ -48,6 +48,9 @@ var stockPricesYesterday =[7, 0, 1, 2, 6, 8];
 //console.log(stockPricesYesterday);
 console.log("the maximum profit is " + getMaxProfit(stockPricesYesterday));
 
+var stockPricesYesterday2 =[8,7,6,5,4,3,2,1];
+console.log("the maximum negative profit is " + getMaxProfit(stockPricesYesterday2));
+
 function getMaxProfit(stockPricesYesterday){
 
 	var maxProfit =0;
