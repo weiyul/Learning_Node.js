@@ -23,10 +23,10 @@ describe('util tests', function() {
 
 
   });
-  it('should pass when stock decreases everydayd and the profit is 0', function(){
+  it('should pass when stock decreases everydayd and the profit is -1', function(){
     var stockPricesYesterday = [8,7,6,5,4,3,2,1];
     var result = maxProfitOfStock.getMaxProfit(stockPricesYesterday);
-    expect(result).to.eql(0);
+    expect(result).to.eql(-1);
 
   });
 
