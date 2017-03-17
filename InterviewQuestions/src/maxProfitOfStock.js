@@ -1,5 +1,6 @@
 // From https://www.interviewcake.com/question/javascript/stock-price
 // What I did is test the solution using node.js and chai
+// I also extracted some of its explanation in the comments area
 
 /*
 Q1: Suppose we could access yesterday's stock prices as an array, where:
@@ -64,10 +65,35 @@ So for every price, we'll need to:
 1. keep track of the lowest price we've seen so far
 2. see if we can get a better profit.
 
+How can we handle negative profit?
+
+Two reasonable options could be:
+1. return a negative profit. "What's the least badly we could have done?"
+2. throw an exception. "We should not have purchased stocks yesterday!"
+
+In this case, it's probably best to go with option(1). The advantags of returning a negative
+profit are:
+
+1. We more accurately answer the challenge. If profit is "revenue minus expenses", 
+we're returning the best we could have done.
+2. It's less opinionated. We'll leave decisions up to our function's users. It would be easy
+to wrap our function in a helper function to decide if it's worth making a purchase.
+3. We allow ourselves to collect better data. It matters if we would have lost money, 
+and it matters how much we would have lost. If we're trying the get rich, we'll probably 
+care about those numbers.
+
+
+
+
 */
 function getMaxProfit(stockPricesYesterday){
+	// If stockPricesYesterday has fewer than 2 prices
+	if(stockPricesYesterday <2){
+		throw new Error('Getting a profit requires at least 2 prices');
+	}
+
 	var minPrice = stockPricesYesterday[0];
-	var maxProfit =0;
+	var maxProfit = stockPricesYesterday[1]-stockPricesYesterday[0];
 
 	// go through every time
 	for(var i =0; i < stockPricesYesterday.length; i++){
