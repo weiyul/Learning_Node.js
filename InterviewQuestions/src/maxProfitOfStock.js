@@ -46,24 +46,22 @@ module.exports = function(){
 
 var stockPricesYesterday =[7, 0, 1, 2, 6, 8];
 //console.log(stockPricesYesterday);
-console.log("the maximum profit is " + getMaxProfit(stockPricesYesterday));
+console.log("the maximum profit is " + getMaxProfit(stockPricesYesterday)+"for stock prices of "+stockPricesYesterday);
 
 var stockPricesYesterday2 =[8,7,6,5,4,3,2,1];
-console.log("the maximum negative profit is " + getMaxProfit(stockPricesYesterday2));
+console.log("Should be negative profit, but we have " + getMaxProfit(stockPricesYesterday2)+ " for stock prices of "+stockPricesYesterday2);
 
 function getMaxProfit(stockPricesYesterday){
 
 	var maxProfit =0;
 
 	// go through every time
-	for(var outerTime =0; outerTime < stockPricesYesterday.length; outerTime++){
-		for(var innerTime=0; innerTime <stockPricesYesterday.length; innerTime++){
-			// for every time, got through every OTHER times
-			var earlierTime = Math.min(outerTime, innerTime);
-			var laterTime = Math.max(outerTime, innerTime);
+	for(var earlierTime =0; earlierTime < stockPricesYesterday.length; earlierTime++){
+		var earlierPrice = stockPricesYesterday[earlierTime];
 
-			// and use those to find the earlier and alter prices
-			var earlierPrice = stockPricesYesterday[earlierTime];
+		// go through all the Later prices
+		for(var laterTime=earlierTime+1; laterTime <stockPricesYesterday.length; laterTime++){
+
 			var laterPrice = stockPricesYesterday[laterTime];
 
 			// see what our profit would be if we bought at the
@@ -77,8 +75,3 @@ function getMaxProfit(stockPricesYesterday){
 	return maxProfit;
 }
 
-/*
-But the above will take O(n^2) time, since we have two nested loops - for every time, we're going through
-every other time. Also, it is not correct: we won't every report a negative profit! Can we do better?
-
-*/
