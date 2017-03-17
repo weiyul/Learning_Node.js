@@ -1,4 +1,4 @@
-// From interviewcake.com
+// From https://www.interviewcake.com/question/javascript/stock-price
 // What I did is test the solution using node.js and chai
 
 /*
@@ -51,26 +51,45 @@ console.log("the maximum profit is " + getMaxProfit(stockPricesYesterday)+"for s
 var stockPricesYesterday2 =[8,7,6,5,4,3,2,1];
 console.log("Should be negative profit, but we have " + getMaxProfit(stockPricesYesterday2)+ " for stock prices of "+stockPricesYesterday2);
 
-function getMaxProfit(stockPricesYesterday){
 
+/*
+Let's see how well we can do by looping through the array only once. 
+Since we're trying to loop through the set once, let's use a greedy approach, where we keep a
+running maxProfit until well reach the eand. We'll start ourt maxProfit at $0. As we're 
+iterating, how do we know if you've found a new maxProfit?
+
+At each iteration, our maxProfit is either:
+1. the same as the maxProfit at the last time step, or
+2. the max profit we can get by selling the the currentPrice
+
+How do we know when we have case(2)?
+The max profit we can get by selling at the currentPrice is simply the difference between the 
+currentPrice and the minPrice from earlier in the day. If this difference is greater than the
+current maxProfit, we have a new maxProfit.
+
+So for every price, we'll need to:
+1. keep track of the lowest price we've seen so far
+2. see if we can get a better profit.
+
+*/
+function getMaxProfit(stockPricesYesterday){
+	var minPrice = stockPricesYesterday[0];
 	var maxProfit =0;
 
 	// go through every time
-	for(var earlierTime =0; earlierTime < stockPricesYesterday.length; earlierTime++){
-		var earlierPrice = stockPricesYesterday[earlierTime];
+	for(var i =0; i < stockPricesYesterday.length; i++){
+		var currentPrice = stockPricesYesterday[i];
+		// ensure minPrice is the lowest price we've seen so far
+		minPrice = Math.min(minPrice, currentPrice);
 
-		// go through all the Later prices
-		for(var laterTime=earlierTime+1; laterTime <stockPricesYesterday.length; laterTime++){
+		// see what our profit would be if we bought at the
+		// min price and sold at the current price
 
-			var laterPrice = stockPricesYesterday[laterTime];
+		var potentialProfit = currentPrice - minPrice;
 
-			// see what our profit would be if we bought at the
-			// min price an dsold at the current price
-			var potentialProfit = laterPrice - earlierPrice;
-
-			// update maxProfit if we can do better
-			maxProfit = Math.max(maxProfit, potentialProfit);
-		}		
+		// update maxProfit if we can do better
+		maxProfit = Math.max(maxProfit, potentialProfit);
+				
 	}
 	return maxProfit;
 }
