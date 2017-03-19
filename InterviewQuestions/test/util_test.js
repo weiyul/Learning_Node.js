@@ -2,7 +2,8 @@ var expect = require('chai').expect;
 var SquareArray = require('../src/squareArray.js'); //To load the file to be tested
 var ShuffleArrayInPlace = require('../src/inPlaceShufleOfAnArray.js');
 var MaxProfitOfStock= require('../src/maxProfitOfStock.js');
-var squareArray, shuffleArrayInPlace, maxProfitOfStock;
+var ProductExceptIntAtIndex= require('../src/product_except_integer_at_that_index.js');
+var squareArray, shuffleArrayInPlace, maxProfitOfStock, productExceptIntAtIndex;
 
 describe('util tests', function() {
 
@@ -10,6 +11,13 @@ describe('util tests', function() {
     squareArray = new SquareArray();
     shuffleArrayInPlace = new ShuffleArrayInPlace();
     maxProfitOfStock = new MaxProfitOfStock();
+    productExceptIntAtIndex = new ProductExceptIntAtIndex();
+  });
+
+  it('should pass if the empty function getProductExceptIntAtIndex work', function(){
+    var intArray = []; 
+    var result= productExceptIntAtIndex.getProductsOfAllIntsExceptAtIndex(intArray);
+    expect(result).to.eql([]);
   });
 
   it('should pass if the function getMaxProfit works', function(){
